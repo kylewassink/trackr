@@ -1,0 +1,20 @@
+<div class="row titlerow">
+	<p class="title">
+		New Track
+	</p>
+</div>
+<div class="row trackrow">
+	<div>
+		<form ng-submit="save()">
+		<p class="title">Track Name and/or Description</p>
+		<input type="text" ng-model="task_desc" required="required">
+		<br>
+		<br>
+		<p class="title">How many days already completed?</p>
+		<input type="number" ng-model="task_days_done">
+		<div class="actions">
+			<button type="submit">Add Track</button>
+		</div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,26 @@
+<div class="row titlerow">
+	<p class="title">
+		Edit
+	</p>
+</div>	
+<div class="row trackrow">
+		Old Description: {{track.description}}
+		<br>
+		<input type="text" ng-model="new_desc">
+	<div class="actions">
+		<button ng-click="goto('/tracks','')" class="half">Cancel</button>
+		<button ng-click="update_description()" ng-disabled="new_desc.length === 0 || new_desc === track.description" class="half">Save Changes</button>
+	</div>
+</div>
+<div class="row titlerow">
+	<p class="title">
+		Delete Track
+	</p>
+</div>
+<div class="row welcomerow">
+	<p ng-if="!delete_clicked" class="title">This action cannot be undone!</p>
+	<p ng-if="delete_clicked" class="title">Are you sure?!</p>
+	<div class="actions">
+		<button ng-click="delete()">Delete</button>
+	</div>
+</div>

@@ -1,0 +1,215 @@
+//default is small/phone
+$media_tablet: 768px;
+$media_desktop: 1200px;
+
+@mixin floatleft { float: left; }
+@mixin floatright { float: right; }
+
+body {
+	margin: 0px 20px;
+	font-family: "Tahoma";
+	background-color: #6BD3CF;
+	@media (min-width: $media_desktop) {
+		margin: 0px 150px;
+	}
+
+}
+
+.nav {
+	position: fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	height: 75px;
+	background-color: #11A397;
+	border-bottom: 5px solid #049890;
+
+	@media (min-width: $media_desktop) {
+		height: 50px;
+	}
+	
+	a {
+		display: inline-block;
+		padding: 0px 5px;
+		color: white;
+		text-decoration: none;
+		vertical-align: middle;
+		line-height: 75px;
+
+		@media (min-width: $media_desktop) {
+			padding: 0px 20px;
+			line-height: 50px;
+		}
+	
+		&.left {
+			width:100%;
+			text-align: center;
+			font-size: 45px;
+
+			@media (min-width: $media_desktop) {
+				@include floatleft;	
+				margin-left: 130px;
+				font-size: 35px;
+				width:auto;
+			}
+		}
+
+		&.right {
+			@include floatright;
+			font-size: 80px;
+			display: none;
+
+			@media (min-width: $media_desktop) {
+				font-size: 20px;
+
+				&.last {
+					margin-right: 130px;
+				}
+			}
+		}
+
+		&:hover {
+			background-color: #049890;
+			margin-top:5px;
+			cursor: pointer;
+
+		}
+	}
+}
+
+.row {
+	width:100%;
+	display:inline-block;
+
+	.leadnum {
+		margin: 0px;
+		@include floatleft;
+		color: #6BD3CF;
+		line-height: 100px;
+		text-align: center;
+		font: {
+			size: 100px;
+		}
+	}
+	
+	&.welcomerow, &.titlerow, &.trackrow {
+		margin-left: 0px;
+		width:100%;
+		max-width: 100%;
+		padding: 0px;
+		background-color:#D3F1EF;
+		margin-bottom: 20px;
+		border-bottom: 2px solid #11A397;
+		
+		.title {
+			font-size: 25px;
+			text-align: center;
+			margin-top: 0px;
+			margin-bottom: 0px;
+			padding: 10px 0px;
+		}
+
+		.actions {
+			width:100%;
+			clear:both;
+
+			button {
+				width: 100%;
+				border: none;
+				height: 40px;
+				max-height: 40px;
+				font-size:20px;
+				float:left;
+				padding:0px;
+				background-color: #777;
+				color:white;
+
+				&.half {
+					width:50%;
+				}
+
+				&.third {
+					width: 33.3%;
+				}
+
+				&:hover {
+					cursor:pointer;
+				}
+
+				&:disabled {
+					background: none;
+					color: #049890;
+					&:hover {
+						cursor: default;
+					}
+				}
+			}
+
+		}
+
+		input {
+			width: 100%;
+			padding: 0px;
+			line-height: 30px;
+			border: 0px;
+			font-size: 20px;
+		}
+	}
+
+	&.trackrow {
+		.title {
+			text-align: left;
+			color: #049890;
+		}
+	}
+
+	&.titlerow {
+		background-color: #11A397;
+		border-bottom: 5px solid #049890;
+		color: white;
+	}
+
+	&.welcomerow {
+
+		.title {
+			color: #049890;
+		}
+	}
+}
+
+.view {
+	margin-top: 75px;
+	padding-bottom: 20px;
+	margin-bottom: 50px;
+	padding-top: 20px;	
+
+	@media (min-width: $media_desktop) {
+		margin-top: 55px;
+	}
+}
+
+footer {
+	position: fixed;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    height:50px;
+    background-color: #049890;
+
+    p {
+    	text-align: center;
+    	font-size: 15px;
+    	line-height:25px;
+    	margin-top:12.5px;
+    	color: #EEE;
+
+    	a {
+    		color: #EEE;
+    	}
+    }
+
+	@media (min-width: $media_desktop) {
+		height:50px;
+		padding-left: 150px;
+	}
+}

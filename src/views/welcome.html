@@ -1,0 +1,28 @@
+<div id="welcome">
+	<div class="row titlerow">
+			<p class="title">Main Menu</p>
+	</div>
+	<div class="row welcomerow">
+		<p class="title" ng-if="!has_local">I'm new here!</p>
+		<p class="title" ng-if="has_local && !scratch_clicked">Start Over?</p>
+		<p class="title" ng-if="has_local && scratch_clicked">Confirm Erase & Start?</p>
+		<div class="actions">
+			<button ng-click="from_scratch()">Get Started</button>
+		</div>
+	</div>
+	<div class="row welcomerow" ng-if="has_local">
+		<p class="title">Auto-Load History?</p>
+		<div class="actions">
+			<button ng-click="from_local()">Get Started</button>
+		</div>
+	</div>
+	<div class="row welcomerow">
+		<p class="title" ng-if="!has_local">Upload Tracks</p>
+		<p class="title" ng-if="has_local && !string_clicked">Upload Tracks</p>
+		<p class="title" ng-if="has_local && string_clicked">Confirm Erase and Upload?</p>
+		<input type="text" ng-show="string_clicked" ng-model="load_string" placeholder="Paste your history & click above again."/>
+		<div class="actions">
+			<button ng-click="from_string()">Get Started</button>
+		</div>
+	</div>
+</div>

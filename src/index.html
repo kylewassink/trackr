@@ -1,0 +1,24 @@
+<!doctype html>
+<html ng-app="trackr">
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Trackr</title>
+	<script src="angular.min.js"></script>
+	<script src="angular-route.min.js"></script>
+	<script src="trackr.min.js"></script>
+	<link rel="stylesheet" href="trackr.css">
+</head>
+<body>
+	<div class="nav">	
+		<a id="logo" class="left" href="#/">Trackr</a>
+		<a class="right last" href="#/tracks/new">New Track</a>
+		<a class="right" href="#/tracks">Tracks</a>
+		<a class="right" href="#/">Start Here</a>
+	</div>
+	<section class="view" ng-view autoscroll>
+	</section>
+	<footer>
+		<p>Built by <a href="http://kylewassink.com">Kyle Wassink</a></p>
+	</footer>
+</body>
+</html>
