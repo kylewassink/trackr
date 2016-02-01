@@ -102,7 +102,6 @@ trackr.service('tracks', function(){
 	this.export = function() {
 		self.repair_ids();
 		var state = {
-			name: self.name,
 			tracks: self.tracks
 		};
 		return angular.toJson(state);
@@ -118,7 +117,6 @@ trackr.service('tracks', function(){
 		if(save_service) {
 			self.dirty = true; 
 			self.loaded_from = "local";
-			self.name = state.name;
 			self.tracks = state.tracks;
 		}
 		return state;
@@ -126,6 +124,10 @@ trackr.service('tracks', function(){
 
 	this.set_local = function() {
 		localStorage.setItem('trackr',self.export());
+	};
+
+	this.erase_local = function() {
+		localStorage.removeItem('trackr');
 	};
 
 	this.stats = function() {
@@ -142,7 +144,6 @@ trackr.service('tracks', function(){
 
 	this.dirty = true;
 	this.loaded_from = null;
-	this.name = null;
 	this.tracks = [];
 
 });

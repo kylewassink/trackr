@@ -1,18 +1,13 @@
 //default is small/phone
-$media_tablet: 768px;
 $media_desktop: 1200px;
-
-@mixin floatleft { float: left; }
-@mixin floatright { float: right; }
 
 body {
 	margin: 0px 20px;
 	font-family: "Tahoma";
 	background-color: #6BD3CF;
 	@media (min-width: $media_desktop) {
-		margin: 0px 150px;
+		margin: 0px 250px;
 	}
-
 }
 
 .nav {
@@ -23,6 +18,7 @@ body {
 	height: 75px;
 	background-color: #11A397;
 	border-bottom: 5px solid #049890;
+	text-align: center;
 
 	@media (min-width: $media_desktop) {
 		height: 50px;
@@ -47,24 +43,8 @@ body {
 			font-size: 45px;
 
 			@media (min-width: $media_desktop) {
-				@include floatleft;	
-				margin-left: 130px;
 				font-size: 35px;
 				width:auto;
-			}
-		}
-
-		&.right {
-			@include floatright;
-			font-size: 80px;
-			display: none;
-
-			@media (min-width: $media_desktop) {
-				font-size: 20px;
-
-				&.last {
-					margin-right: 130px;
-				}
 			}
 		}
 
@@ -83,7 +63,7 @@ body {
 
 	.leadnum {
 		margin: 0px;
-		@include floatleft;
+		float: left;
 		color: #6BD3CF;
 		line-height: 100px;
 		text-align: center;
@@ -132,8 +112,11 @@ body {
 					width: 33.3%;
 				}
 
-				&:hover {
+				&:hover:enabled {
 					cursor:pointer;
+				    padding-top: 2px;
+				    border-top: 2px solid #D3F1EF;
+				    background-color: #11A397;
 				}
 
 				&:disabled {
@@ -141,10 +124,10 @@ body {
 					color: #049890;
 					&:hover {
 						cursor: default;
+
 					}
 				}
 			}
-
 		}
 
 		input {
@@ -167,12 +150,26 @@ body {
 		background-color: #11A397;
 		border-bottom: 5px solid #049890;
 		color: white;
+
+		.actions button:hover:enabled {
+		    border-top: 5px solid #11A397;
+		    background-color: #049890;
+		}
 	}
 
 	&.welcomerow {
 
 		.title {
 			color: #049890;
+		}
+	}
+
+	&.overdue {
+		background-color: #F1D3D6;
+
+		.actions button:hover:enabled {
+			border-top: 2px solid #F1D3D6;
+		    // background-color: #11A397;
 		}
 	}
 }
@@ -205,11 +202,14 @@ footer {
 
     	a {
     		color: #EEE;
+    		&:hover {
+    			background-color: #777;
+    			padding: 5px;
+    		}
     	}
     }
 
 	@media (min-width: $media_desktop) {
 		height:50px;
-		padding-left: 150px;
 	}
 }

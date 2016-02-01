@@ -15,6 +15,7 @@ trackr.controller('welcomeCtrl', ['$scope', 'tracks', '$location', function($sco
 		}
 
 		tracks.loaded_from = 'scratch';
+		tracks.erase_local();
 		$location.path('/tracks/new');
 	};
 

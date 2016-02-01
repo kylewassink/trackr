@@ -8,21 +8,16 @@
 	</div>
 	<input type="text" ng-model="export_string" ng-if="export_string.length > 0">
 </div>
-<div ng-repeat="track in tracks.tracks | orderBy:'count':true" class="row trackrow">
-	<p class="leadnum" ng-class="{
-						todo: !tracks.is_task_overdue(track.id) && !tracks.is_done_today(track.id),
-						done: !tracks.is_task_overdue(track.id) && tracks.is_done_today(track.id),
-						overdue: tracks.is_task_overdue(track.id)
-						}">
+<div ng-repeat="track in tracks.tracks | orderBy:'count':true" class="row trackrow" ng-class="{overdue: tracks.is_task_overdue(track.id)}">
+	<p class="leadnum">
 		{{track.count}}
 	</p>
 	<p class="title" ng-bind="track.description"></p>
 	<div ng-if="tracks.is_task_overdue(track.id)">
 		<p>You have broken your {{track.count}} day streak :(</p>
-		<!-- <a ng-href="#/tracks/edit/{{track.id}}">Edit</a> -->
 	</div>
 	<div ng-if="!tracks.is_task_overdue(track.id)">
-		<p ng-if="tracks.is_done_today(track.id)">You did this today! Great job! You are on a {{track.count}} day streak!</p>
+		<p ng-if="tracks.is_done_today(track.id)">Great job! You are on a {{track.count}} day streak!</p>
 	</div>
 	<div class="actions">
 		<button ng-disabled="tracks.is_done_today(track.id) || tracks.is_task_overdue(track.id)" ng-click="tracks.task_complete(track.id)" ng-bind="button_status(track.id)" class="half"></button>
@@ -40,7 +35,7 @@
 		{{tracks.stats().tracks}}
 	</p>
 	<p class="title">
-		Tracked Task
+		Trackr<span ng-if="tracks.stats().tracks > 1">'s</span>
 	</p>
 </div>
 <div class="row trackrow">
@@ -48,6 +43,6 @@
 		{{ tracks.stats().days }}
 	</p>
 	<p class="title">
-		Day Streak
+		Completed Task<span ng-if="tracks.stats().days > 1">s</span> (All Time)
 	</p>
 </div>
